@@ -50,10 +50,4 @@ Este projeto foi desenvolvido com foco em aprendizado prático de desenvolviment
 - Integração com banco de dados externo (SQLite, MongoDB)
 - Autenticação de usuários
 
-## 📄 Licença
-
-Este projeto está licenciado sob os termos da licença MIT.
-
 ---
-
-Desenvolvido por **Davi** — Estudante de Ciência da Computação.  
