@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "cliente": "duda",
+    "data": "03/06/2025 19:47",
+    "tipo": "Loja",
+    "produto": "2",
+    "quantidade": 1,
+    "preco_unitario": 2.0,
+    "motoboy": "Retirada na Loja",
+    "total": 2.0
+  },
+  {
+    "id": 2,
+    "cliente": "duda",
+    "data": "03/06/2025 19:47",
+    "tipo": "Loja",
+    "produto": "1",
+    "quantidade": 1,
+    "preco_unitario": 1.0,
+    "motoboy": "Retirada na Loja",
+    "total": 1.0
+  }
+]

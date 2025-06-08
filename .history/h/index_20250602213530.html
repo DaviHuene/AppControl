@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Eu te amo</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    let scene = new THREE.Scene();
+    let camera = new THREE.PerspectiveCamera(75, window.innerWidth/window.innerHeight, 0.1, 1000);
+    let renderer = new THREE.WebGLRenderer({antialias: true});
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Iluminação
+    let light = new THREE.PointLight(0xffffff, 2, 100);
+    light.position.set(0, 0, 20);
+    scene.add(light);
+
+    // Função para criar coração roxo
+    function createHeart() {
+      const x = new THREE.Shape();
+      x.moveTo(0, 0);
+      x.bezierCurveTo(0, 3, -3, 3, -3, 0);
+      x.bezierCurveTo(-3, -3, 0, -3.5, 0, -6);
+      x.bezierCurveTo(0, -3.5, 3, -3, 3, 0);
+      x.bezierCurveTo(3, 3, 0, 3, 0, 0);
+
+      const extrudeSettings = { depth: 1, bevelEnabled: true, bevelSegments: 2, steps: 2, bevelSize: 0.5, bevelThickness: 0.5 };
+      const geometry = new THREE.ExtrudeGeometry(x, extrudeSettings);
+      const material = new THREE.MeshPhongMaterial({ color: 0x800080 });
+      const mesh = new THREE.Mesh(geometry, material);
+
+      mesh.position.set(Math.random() * 100 - 50, Math.random() * 100 - 50, Math.random() * 100 - 50);
+      mesh.rotation.set(Math.random() * Math.PI, Math.random() * Math.PI, Math.random() * Math.PI);
+      mesh.scale.set(0.3, 0.3, 0.3);
+
+      return mesh;
+    }
+
+    for (let i = 0; i < 100; i++) {
+      scene.add(createHeart());
+    }
+
+    // Texto 3D
+    const loader = new THREE.FontLoader();
+    loader.load('https://threejs.org/examples/fonts/helvetiker_bold.typeface.json', function (font) {
+      const textGeometry = new THREE.TextGeometry("EU TE AMO ATE A LUA <3", {
+        font: font,
+        size: 2,
+        height: 0.5,
+        curveSegments: 12,
+        bevelEnabled: true,
+        bevelThickness: 0.03,
+        bevelSize: 0.02,
+        bevelOffset: 0,
+        bevelSegments: 5
+      });
+      const textMaterial = new THREE.MeshPhongMaterial({ color: 0x800080 });
+      const textMesh = new THREE.Mesh(textGeometry, textMaterial);
+      textMesh.position.set(-15, 0, 0);
+      scene.add(textMesh);
+    });
+
+    camera.position.z = 50;
+
+    function animate() {
+      requestAnimationFrame(animate);
+      scene.rotation.y += 0.001;
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

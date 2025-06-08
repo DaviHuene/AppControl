@@ -1,0 +1,22 @@
+[
+  {
+    "nome": "12",
+    "quantidade": 0,
+    "preco": 12.0
+  },
+  {
+    "nome": "121",
+    "quantidade": 0,
+    "preco": 12.0
+  },
+  {
+    "nome": "11",
+    "quantidade": 21,
+    "preco": 212.0
+  },
+  {
+    "nome": "22",
+    "quantidade": 11,
+    "preco": 11.0
+  }
+]
