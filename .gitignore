@@ -1,0 +1,7 @@
+
+# Arquivos de histórico do VSCode
+.history/
+
+# Arquivos de dados JSON que não devem ser versionados
+pedidos.json
+produtos.json
